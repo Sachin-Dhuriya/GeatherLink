@@ -67,11 +67,11 @@ function EventHosting() {
                 <input type="date" name="date" className="event-input" value={event.date} onChange={handleChange} required />
                 <input type="text" name="location" className="event-input" placeholder="Location" value={event.location} onChange={handleChange} required />
                 <input type="time" name="time" className="event-input" value={event.time} onChange={handleChange} required />
-                <input type="text" name="eventctg" className="event-input" value={event.eventctg} onChange={handleChange} required />
-                <input type="text" name="language" className="event-input" value={event.language} onChange={handleChange} required />
-                <input type="number" name="duration" className="event-input" value={event.duration} onChange={handleChange} required />
-                <input type="number" name="agelimit" className="event-input" value={event.agelimit} onChange={handleChange} required />
-                <input type="text" name="price" className="event-input" value={event.price} onChange={handleChange} required />
+                <input type="text" name="eventctg" placeholder="Event Category" className="event-input" value={event.eventctg} onChange={handleChange} required />
+                <input type="text" name="language" placeholder="Language" className="event-input" value={event.language} onChange={handleChange} required />
+                <input type="number" name="duration" placeholder="Event Duration" className="event-input" value={event.duration} onChange={handleChange} required />
+                <input type="number" name="agelimit" placeholder="Age Limit" className="event-input" value={event.agelimit} onChange={handleChange} required />
+                <input type="text" name="price" placeholder="Price" className="event-input" value={event.price} onChange={handleChange} required />
 
                 <input type="file" accept="image/*" className="event-input" onChange={handleImageChange} />
 
