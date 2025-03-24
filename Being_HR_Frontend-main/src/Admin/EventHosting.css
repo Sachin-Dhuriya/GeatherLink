@@ -36,12 +36,12 @@
 
 .event-input:focus, .event-textarea:focus {
     outline: none;
-    border-color: #00ff37;
+    border-color: #4caf50;
 }
 
 .event-button {
     padding: 10px;
-    background: #007bff;
+    background: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -51,7 +51,7 @@
 }
 
 .event-button:hover {
-    background: #0056b3;
+    background: #4caf50;
 }
 
 .event-button:disabled {
