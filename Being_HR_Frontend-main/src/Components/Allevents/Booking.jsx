@@ -63,9 +63,11 @@ const Booking = () => {
               Submit
             </button>
           </div>
-          <TextEditor/>
+          
         </form>
+        
       </section>
+      <TextEditor/>
     </div>
   );
 };

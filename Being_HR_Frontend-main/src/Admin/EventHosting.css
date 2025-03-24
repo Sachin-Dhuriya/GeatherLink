@@ -2,17 +2,17 @@
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
-    background: #f9f9f9;
+    background: rgb(33, 33, 33);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .Host-event-heading {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #ffffff;
 }
 
 .event-form {
@@ -36,7 +36,7 @@
 
 .event-input:focus, .event-textarea:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #00ff37;
 }
 
 .event-button {
