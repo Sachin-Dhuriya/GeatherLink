@@ -52,6 +52,11 @@
     color: #e5e5e5;
     margin-top: 4px;
 }
+.event-header p {
+    font-size: 1rem;
+    margin-left: -56px;
+    opacity: 0.8;
+  }
 
 .book-button {
     background: #4caf50;

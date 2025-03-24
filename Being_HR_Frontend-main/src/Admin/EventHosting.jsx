@@ -67,7 +67,12 @@ function EventHosting() {
                 <input type="date" name="date" className="event-input" value={event.date} onChange={handleChange} required />
                 <input type="text" name="location" className="event-input" placeholder="Location" value={event.location} onChange={handleChange} required />
                 <input type="time" name="time" className="event-input" value={event.time} onChange={handleChange} required />
-                
+                <input type="text" name="eventctg" className="event-input" value={event.eventctg} onChange={handleChange} required />
+                <input type="text" name="language" className="event-input" value={event.language} onChange={handleChange} required />
+                <input type="number" name="duration" className="event-input" value={event.duration} onChange={handleChange} required />
+                <input type="number" name="agelimit" className="event-input" value={event.agelimit} onChange={handleChange} required />
+                <input type="text" name="price" className="event-input" value={event.price} onChange={handleChange} required />
+
                 <input type="file" accept="image/*" className="event-input" onChange={handleImageChange} />
 
                 <button type="submit" className="event-button" disabled={loading}>

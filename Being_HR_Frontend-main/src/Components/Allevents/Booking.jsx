@@ -6,7 +6,6 @@ const Booking = () => {
     <div className="event-detail-page">
       <header className="event-header">
         <h1>Register for event</h1>
-        {/* <p>jljfnkdfwelkmfwelkdscx</p> */}
       </header>
 
       <section className="f-registration-form">
