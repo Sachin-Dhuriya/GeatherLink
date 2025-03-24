@@ -1,3 +1,4 @@
+import TextEditor from "../../Admin/TextEditor";
 import "./Booking.css";
 
 const Booking = () => {
@@ -63,6 +64,7 @@ const Booking = () => {
               Submit
             </button>
           </div>
+          <TextEditor/>
         </form>
       </section>
     </div>
