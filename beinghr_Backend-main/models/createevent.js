@@ -8,7 +8,6 @@ const createEventSchema = new Schema({
     },
     description: {
         type: String,
-        required: true
     },
     date: {
         type: String,  // Keeping it string to match the frontend format
@@ -22,12 +21,32 @@ const createEventSchema = new Schema({
         type: String,
         required: true
     },
+    eventctg: {   // Added Event Category
+        type: String,
+        required: true
+    },
+    language: {   // Added Language
+        type: String,
+        required: true
+    },
+    duration: {   // Added Duration
+        type: Number,
+        required: true
+    },
+    agelimit: {   // Added Age Limit
+        type: Number,
+        required: true
+    },
+    price: {   // Added Price
+        type: String,
+        required: true
+    },
     image: {
         type: String, // Stores the filename of the uploaded image
         required: false
     }
-})
+});
 
-const createEvent = mongoose.model("createEvent",createEventSchema);
+const createEvent = mongoose.model("createEvent", createEventSchema);
 
 module.exports = createEvent;

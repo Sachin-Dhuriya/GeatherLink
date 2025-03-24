@@ -3,25 +3,22 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import axios from "axios"; // Import axios for API requests
 import "./Event.css";
 
-
-
 function Events() {
   const [mongoEvents, setMongoEvents] = useState([]); // State to store events from MongoDB
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("https://beinghr-backend.onrender.com/eventdetails");
+        const response = await axios.get("http://localhost:5000/eventdetails");
         console.log("Fetched Events Data:", response.data.data); // Debugging
         setMongoEvents(response.data.data);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
     };
-  
+
     fetchEvents();
   }, []);
-  
 
   return (
     <div className="events-container">
@@ -35,26 +32,34 @@ function Events() {
       </header>
 
       <div className="events-list">
-    
-{mongoEvents.map((event, index) => (
-  <div className="events-card" key={`mongo-${index}`}>
-    <img src={event.image || "https://via.placeholder.com/400"} alt={event.title} className="event-image" />
-    <div className="event-content">
-      <h2 className="event-category">{event.title}</h2>
-      {/* <p className="event-overview">{event.description}</p> */}
-      <div className="event-upcoming">
-        <p><strong>Date:</strong> {event.date}</p>
-        <p><strong>Location:</strong> {event.location}</p>
-        <p><strong>Time:</strong> {event.time}</p>
+        {mongoEvents.map((event, index) => (
+          <div className="events-card" key={`mongo-${index}`}>
+            <img
+              src={event.image || "https://via.placeholder.com/400"}
+              alt={event.title}
+              className="event-image"
+            />
+            <div className="event-content">
+              <h2 className="event-category">{event.title}</h2>
+              <div className="event-upcoming">
+                <p>
+                  <strong>Date:</strong> {event.date}
+                </p>
+                <p>
+                  <strong>Location:</strong> {event.location}
+                </p>
+                <p>
+                  <strong>Time:</strong> {event.time}
+                </p>
 
-        {/* Fix: Check if `event.upcoming` exists before accessing `cta` */}
-        <Link to="/eventdetails" className="cta-button"> Book
-          {/* {event?.upcoming?.cta || "Register"} */}
-        </Link>
-      </div>
-    </div>
-  </div>
-))}
+                {/* Dynamic Link to Event Details */}
+                <Link to={`/eventdetails/${event._id}`} className="cta-button">
+                  Book
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ const Routers = () => {
   <Route path="/admin-user-records" element={<UserDetails />} />
   <Route path="/admin" element={<AdminHome />} />
   <Route path="/event" element={<Events />} />
-  <Route path="/booking" element={<Booking />} />
+  <Route path="/booking/:id" element={<Booking />} />
   <Route path="/events-registration" element={<EventRegistration />} />
   {/* <Route path="/flagship" element={<FlagshipEventsPage />} /> */}
   <Route path="/about" element={<About />} />
@@ -41,7 +41,7 @@ const Routers = () => {
   <Route path="/signup" element={<SignupPage />} />
   <Route path="/login" element={<Login />} />
   <Route path="/createevent" element={<EventHosting />} />
-  <Route path="/eventdetails" element={<EventDetails/>} />
+  <Route path="/eventdetails/:id" element={<EventDetails />} />
   {/* <Route path="/register/:eventId" element={<Skill />} /> */}
 </Routes>
 

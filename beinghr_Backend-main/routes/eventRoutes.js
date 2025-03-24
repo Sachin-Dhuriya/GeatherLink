@@ -29,22 +29,41 @@ const upload = multer({ storage });
 // 🔹 POST Route for Adding Event
 router.post('/add-event', upload.single('image'), async (req, res) => {
     try {
-        const { title, description, date, location, time } = req.body;
-        const imageUrl = req.file ? req.file.path : null; // Get Cloudinary image URL
+        const { 
+            title, 
+            description, 
+            date, 
+            location, 
+            time, 
+            eventctg, 
+            language, 
+            duration, 
+            agelimit, 
+            price 
+        } = req.body;
 
+        const imageUrl = req.file ? req.file.path : null;
+
+        // Creating the event object
         const newEvent = new Event({
             title,
             description,
             date,
             location,
             time,
-            image: imageUrl // Store URL in MongoDB
+            eventctg,
+            language,
+            duration,
+            agelimit,
+            price,
+            image: imageUrl // Cloudinary image URL
         });
 
+        // Save to the database
         await newEvent.save();
         res.status(201).json({ message: 'Event added successfully!', imageUrl });
     } catch (error) {
-        console.error(error);
+        console.error('Error while adding event:', error.message);
         res.status(500).json({ error: 'Failed to add event' });
     }
 });

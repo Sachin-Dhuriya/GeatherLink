@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './EventHosting.css';
-import TextEditor from './TextEditor';
+import React, { useState } from "react";
+import axios from "axios";
+import "./EventHosting.css";
+import TextEditor from "./TextEditor";
 
 function EventHosting() {
     const [event, setEvent] = useState({
-        title: '',
-        description: '',
-        date: '',
-        location: '',
-        time: '',
+        title: "",
+        description: "",
+        date: "",
+        location: "",
+        time: "",
+        eventctg: "",
+        language: "",
+        duration: "",
+        agelimit: "",
+        price: "",
         image: null
     });
 
-    const [loading, setLoading] = useState(false); // Loading state
-    const [error, setError] = useState(null); // Error state
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         setEvent({ ...event, [e.target.name]: e.target.value });
@@ -25,32 +30,43 @@ function EventHosting() {
         setEvent({ ...event, image: file });
     };
 
+    // Function to handle description change from TextEditor
+    const handleDescriptionChange = (description) => {
+        setEvent({ ...event, description });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError(null);
 
         const formData = new FormData();
-        formData.append("title", event.title);
-        formData.append("description", event.description);
-        formData.append("date", event.date);
-        formData.append("location", event.location);
-        formData.append("time", event.time);
-        
-        if (event.image) {
-            formData.append("image", event.image);
-        }
+        Object.keys(event).forEach((key) => {
+            formData.append(key, event[key]);
+        });
 
         try {
-            const res = await axios.post('https://beinghr-backend.onrender.com/api/events/add-event', formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }
+            const res = await axios.post("http://localhost:5000/api/events/add-event", formData, {
+                headers: { "Content-Type": "multipart/form-data" }
             });
 
             alert(res.data.message);
-            setEvent({ title: '', description: '', date: '', location: '', time: '', image: null });
+            setEvent({
+                title: "",
+                description: "",
+                date: "",
+                location: "",
+                time: "",
+                eventctg: "",
+                language: "",
+                duration: "",
+                agelimit: "",
+                price: "",
+                image: null
+            });
         } catch (error) {
-            console.error("Error:", error);
-            setError(`Failed to add event. Please try again. ${error}`);
+            console.error("Error while adding event:", error);
+            setError(`Failed to add event. Please try again. ${error.message}`);
         } finally {
             setLoading(false);
         }
@@ -61,20 +77,94 @@ function EventHosting() {
             <h5 className="Host-event-heading">Add New Event</h5>
             {error && <p className="error-message">{error}</p>}
             <form className="event-form" onSubmit={handleSubmit}>
-                <input type="text" name="title" className="event-input" placeholder="Title" value={event.title} onChange={handleChange} required />
-                {/* <textarea name="description" className="event-textarea" placeholder="Description" value={event.description} onChange={handleChange} required /> */}
-               <TextEditor/>
-                <input type="date" name="date" className="event-input" value={event.date} onChange={handleChange} required />
-                <input type="text" name="location" className="event-input" placeholder="Location" value={event.location} onChange={handleChange} required />
-                <input type="time" name="time" className="event-input" value={event.time} onChange={handleChange} required />
-                <input type="text" name="eventctg" placeholder="Event Category" className="event-input" value={event.eventctg} onChange={handleChange} required />
-                <input type="text" name="language" placeholder="Language" className="event-input" value={event.language} onChange={handleChange} required />
-                <input type="number" name="duration" placeholder="Event Duration" className="event-input" value={event.duration} onChange={handleChange} required />
-                <input type="number" name="agelimit" placeholder="Age Limit" className="event-input" value={event.agelimit} onChange={handleChange} required />
-                <input type="text" name="price" placeholder="Price" className="event-input" value={event.price} onChange={handleChange} required />
+                <input
+                    type="text"
+                    name="title"
+                    className="event-input"
+                    placeholder="Title"
+                    value={event.title}
+                    onChange={handleChange}
+                    required
+                />
+                {/* TextEditor component with onChange handler */}
+                <TextEditor onChange={handleDescriptionChange} />
 
-                <input type="file" accept="image/*" className="event-input" onChange={handleImageChange} />
-
+                <input
+                    type="date"
+                    name="date"
+                    className="event-input"
+                    value={event.date}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="location"
+                    className="event-input"
+                    placeholder="Location"
+                    value={event.location}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="time"
+                    name="time"
+                    className="event-input"
+                    value={event.time}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="eventctg"
+                    className="event-input"
+                    placeholder="Event Category"
+                    value={event.eventctg}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="language"
+                    className="event-input"
+                    placeholder="Language"
+                    value={event.language}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="number"
+                    name="duration"
+                    className="event-input"
+                    placeholder="Event Duration (minutes)"
+                    value={event.duration}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="number"
+                    name="agelimit"
+                    className="event-input"
+                    placeholder="Age Limit"
+                    value={event.agelimit}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="price"
+                    className="event-input"
+                    placeholder="Price"
+                    value={event.price}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="file"
+                    accept="image/*"
+                    className="event-input"
+                    onChange={handleImageChange}
+                />
                 <button type="submit" className="event-button" disabled={loading}>
                     {loading ? "Adding Event..." : "Add Event"}
                 </button>
