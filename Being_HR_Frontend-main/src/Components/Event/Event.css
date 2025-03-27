@@ -14,6 +14,7 @@
   .events-header h1 {
     font-size: 2.5rem;
     color: #4cAF50;
+    font-weight: 550;
   }
   
   .events-header p {
@@ -34,7 +35,7 @@
   .events-card {
     background: rgb(33, 33, 33);
     border-radius: 10px;
-    width: 430px;
+    width: 360px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -86,6 +87,7 @@
     width: 100%;
     text-align: center;
     color: white;
+    background-color: #4cAF50;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
@@ -95,6 +97,6 @@
   }
   
   .cta-button:hover {
-    background-color: #c0392b;
+    background-color: #45e04a;
   }
   

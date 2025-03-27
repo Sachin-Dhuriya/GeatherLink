@@ -82,6 +82,7 @@ export default function TextEditor({ onChange }) {
       {/* Editable Content Area */}
       <div
         id="editor"
+        placeholder= "Details about event"
         contentEditable
         className="editor"
         style={{ textAlign: alignment }}
