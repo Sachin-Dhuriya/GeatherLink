@@ -162,7 +162,6 @@ const Booking = () => {
         </form>
         
       </section>
-      <TextEditor/>
     </div>
   );
 };
