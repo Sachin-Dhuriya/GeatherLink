@@ -150,6 +150,7 @@
 
 .upcoming-events {
   display: flex;
+  flex-wrap: wrap;
   cursor: pointer;
   justify-content: center;
   gap: 20px;
@@ -160,8 +161,7 @@
 .home-event-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 300px;
+  width: 345px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;

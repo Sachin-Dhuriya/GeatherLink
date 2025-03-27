@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css"; // Import the CSS file
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe,FaYoutube, FaUsers, FaCalendarAlt, FaHandshake, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+
 
 const Contact = () => {
   // State for form inputs
@@ -48,72 +50,28 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-us-container">
-      <div className="contact-us-wrapper">
-        <div className="contact-us-content">
-          <h1 className="contact-us-title">Contact Us - BeingHR Community</h1>
-          <p className="contact-us-intro">
-            We’re here to connect with you! Whether you have questions, feedback, or are interested in partnerships, events, or joining our community, reach out anytime.
-          </p>
 
-          {/* General Inquiries */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">General Inquiries</h2>
-            <p className="section-text">If you have any questions or need assistance, we’d love to help:</p>
-            <ul className="section-list">
-              <li>Email: <a href="mailto:shyam@beinghr.online">shyam@beinghr.online</a></li>
-              <li>Phone: <a href="tel:+918850487716">+91 88504 87716</a></li>
-              <li>Office Address: 103, Shourie Complex, JP Rd, Andheri West, Mumbai 400058</li>
-            </ul>
-          </section>
 
-          {/* Join the Community */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">Join the Community</h2>
-            <p className="section-text">
-              Want to be part of India’s largest HR network? Gain access to exclusive events, learning resources, and networking opportunities.
-            </p>
-            <ul className="section-list">
-              <li>Website: <a href="http://www.beinghr.online" target="_blank" rel="noopener noreferrer">www.beinghr.online</a></li>
-              <li>Membership Inquiries: <a href="mailto:membership@beinghr.com">membership@beinghr.com</a></li>
-            </ul>
-            <button className="cta-button">Join Now</button>
-          </section>
 
-          {/* Event Information */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">Event Information</h2>
-            <p className="section-text">
-              For details about attending or sponsoring our events, reach out:
-            </p>
-            <p className="section-text">Event Support: <a href="mailto:events@beinghr.com">events@beinghr.com</a></p>
-          </section>
+      <div className="cnt-container">
+      <div className="cnt-header">
+        <h1>Contact BeingHR</h1>
+        <p>Whether you have questions, feedback, or partnership inquiries, we’ d0 love to hear from you!</p>
+      </div>
 
-          {/* Partnership Opportunities */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">Partnership Opportunities</h2>
-            <p className="section-text">
-              Collaborate with BeingHR to promote HR innovation and connect with professionals across India:
-            </p>
-            <p className="section-text">Partnership Inquiries: <a href="mailto:partners@beinghr.com">partners@beinghr.com</a></p>
-          </section>
+      <div className="cnt-grid">
+        <div className="cnt-card">
+          <h2>General Inquiries</h2>
+          <p><FaEnvelope /> shyam@beinghr.online</p>
+          <p><FaPhone /> +91 88504 87716</p>
+          <p><FaMapMarkerAlt /> 103, Shourie Complex, JP Rd, Andheri West, Mumbai 400058</p>
+        </div>
 
-          {/* Follow Us */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">Follow Us on Social Media</h2>
-            <ul className="section-list">
-              <li>LinkedIn: <a href="#">BeingHR LinkedIn</a></li>
-              <li>Instagram: <a href="#">@BeingHR</a></li>
-              <li>Twitter: <a href="#">@BeingHR</a></li>
-            </ul>
-          </section>
-
-          {/* Contact Form */}
-          <section className="contact-page-sections">
+        <section className="contact-page-sections">
             <h2 className="page-section-title">Contact Form</h2>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Name</label>
+               
                 <input
                   type="text"
                   name="name"
@@ -124,7 +82,7 @@ const Contact = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Email Address</label>
+              
                 <input
                   type="email"
                   name="email"
@@ -135,7 +93,7 @@ const Contact = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Phone Number</label>
+             
                 <input
                   type="tel"
                   name="phone"
@@ -146,7 +104,7 @@ const Contact = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Message</label>
+                
                 <textarea
                   name="message"
                   rows="4"
@@ -156,7 +114,7 @@ const Contact = () => {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="submit-button">
+              <button type="submit" className="submitctn-button">
                 Submit
               </button>
             </form>
@@ -165,18 +123,43 @@ const Contact = () => {
             {responseMessage && <p className="success-message">{responseMessage}</p>}
             {error && <p className="error-message">{error}</p>}
           </section>
+      </div>
 
-          {/* Visit Us */}
-          <section className="contact-page-sections">
-            <h2 className="page-section-title">Visit Us</h2>
-            <p className="section-text">
-              Stop by our office to connect with the BeingHR team:
-            </p>
-            <p className="section-text">Office Hours: Monday to Friday, 10:00 AM – 6:00 PM</p>
-          </section>
+      <div className="cnt-grid">
+        <div className="cnt-card">
+          <h2><FaGlobe /> Join the Community</h2>
+          <p>Visit: <a href="https://www.beinghr.online">www.beinghr.online</a></p>
+          <p>Membership: <a href="mailto:membership@beinghr.com">membership@beinghr.com</a></p>
+        </div>
+        <div className="cnt-card">
+          <h2><FaCalendarAlt /> Event Information</h2>
+          <p>For event details: <a href="mailto:events@beinghr.com">events@beinghr.com</a></p>
+        </div>
+        <div className="cnt-card">
+          <h2><FaHandshake /> Partnership Opportunities</h2>
+          <p>Collaborate with us: <a href="mailto:partners@beinghr.com">partners@beinghr.com</a></p>
+        </div>
+      </div>
+
+      <div className="cnt-social">
+        <h2>Follow Us</h2>
+        <div className="cnt-social-links">
+           <a href="https://www.linkedin.com/company/beinghr/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin size={30} />
+                  </a>
+                  <a href="https://x.com/i_beinghr" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter size={30} />
+                  </a>
+                  <a href="https://www.instagram.com/i_beinghr/" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram size={30} />
+                  </a>
+                  <a href="https://www.youtube.com/@BeingHRpro" target="_blank" rel="noopener noreferrer">
+                    <FaYoutube size={30} />
+                  </a>
         </div>
       </div>
     </div>
+ 
   );
 };
 

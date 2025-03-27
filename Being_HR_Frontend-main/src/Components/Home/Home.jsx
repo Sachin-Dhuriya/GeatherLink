@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css';
+import axios from "axios";
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const expertiseAreas = [
   {
@@ -46,6 +47,21 @@ const testimonials = [
   },
 ];
 function Home() {
+  const [mongoEvents, setMongoEvents] = useState([]); // State to store events from MongoDB
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/eventdetails");
+        console.log("Fetched Events Data:", response.data.data); // Debugging
+        setMongoEvents(response.data.data);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -129,65 +145,29 @@ BeingHR is India’s leading community for HR professionals, offering unmatched 
   <h1>Our Upcoming Events</h1>
   <h3>Engage with Experts, Expand Your Horizons</h3>
   <div className="upcoming-events">
-    {/* Event 1: CHRO Conclave 2025 */}
-    <div className="home-event-card">
+  {mongoEvents.map((event, index) => (
+ 
+    <div className="home-event-card" key={`mongo-${index}`}>
       <img 
-        src="https://th.bing.com/th/id/OIP.AL-gsIOXt6-QGWSyVkszRAHaEC?w=293&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" 
-        alt="CHRO Conclave 2025" 
+        src={event.image || "https://via.placeholder.com/400"}
+        alt={event.title}
         className="event-image" 
       />
       <div className="home-event-details">
-        <h2>CHRO Conclave 2025</h2>
-        <p><strong>Date:</strong> February 12, 2025</p>
-        <p><strong>Location:</strong> Mumbai</p>
-        <p><strong>Topics:</strong> DEIB, AI in Recruitment, and HR Innovations</p>
+        <h2>{event.title}</h2>
+        <p><strong>Date:</strong> {event.date}</p>
+        <p><strong>Location:</strong> {event.location}</p>
+        <p><strong>Time</strong> {event.time}</p>
       </div>
+      <Link to={`/eventdetails/${event._id}`} className="cta-button">
+                  Book
+                </Link>
     </div>
-
-    {/* Event 2: Mock Interview Series */}
-    <div className="home-event-card">
-      <img 
-        src="https://th.bing.com/th/id/OIP.HMYD89b3jHnJ7EVBsf3u4AHaFj?w=225&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" 
-        alt="Mock Interview Series" 
-        className="event-image" 
-      />
-      <div className="home-event-details">
-        <h2>Mock Interview Series</h2>
-        <p><strong>Date:</strong> March 1, 2025</p>
-        <p><strong>Location:</strong> Online</p>
-        <p><strong>Audience:</strong> MBA students and early HR professionals</p>
-      </div>
-    </div>
+  ))}
+ 
   </div>
 </div>
-
-
-    {/* <div className="events-list">
-      <h1>Our Upcoming Webinar</h1>
-      <div className='event-names'>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-      </div>
-    </div>
-
-    <div className="company-list">
-      <h1>Trusted By</h1>
-      <div className='company-names'>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-        <Link><img src="#" alt="Event" /></Link>
-       
-      </div>
-    </div> */}
+     
  
     <div className="two">
       <h2 className="title">Voices from Our Community</h2>
@@ -260,17 +240,20 @@ BeingHR is India’s leading community for HR professionals, offering unmatched 
       <h2>Have Questions? Let’s Connect!</h2>
       <div className="home-contact-info">
         <p>Email: <a href="mailto:shyam@beinghr.online">shyam@beinghr.online</a></p>
-        <p>Phone: <a href="tel:+918850487716">+91-88504 87716</a></p>
+        <p>Phone: <a href="tel:+918850487716">+91 88504 87716</a></p>
       </div>
       <div className="home-social-icons">
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/company/beinghr/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin size={30} />
         </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/i_beinghr" target="_blank" rel="noopener noreferrer">
           <FaTwitter size={30} />
         </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/i_beinghr/" target="_blank" rel="noopener noreferrer">
           <FaInstagram size={30} />
+        </a>
+        <a href="https://www.youtube.com/@BeingHRpro" target="_blank" rel="noopener noreferrer">
+          <FaYoutube size={30} />
         </a>
       </div>
     </div>

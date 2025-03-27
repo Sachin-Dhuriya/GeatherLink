@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  min-width: 100%;
 }
 
 /* Header styling */
@@ -29,7 +30,7 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 /* Form fields */
@@ -57,18 +58,11 @@
   outline: none;
 }
 
-.error-msg {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 4px;
-}
-
-
 /* Submit button */
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: white;
+  background-color: #4cAF50;
   color: white;
   border: none;
   border-radius: 4px;
@@ -77,5 +71,5 @@
 }
 
 .submit-button:hover {
-  background-color: white;
+  background-color: #4ae64f;
 }

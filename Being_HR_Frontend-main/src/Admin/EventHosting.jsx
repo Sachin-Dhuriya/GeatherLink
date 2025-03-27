@@ -86,8 +86,6 @@ function EventHosting() {
                     onChange={handleChange}
                     required
                 />
-                {/* TextEditor component with onChange handler */}
-                <TextEditor onChange={handleDescriptionChange} />
 
                 <input
                     type="date"
@@ -168,6 +166,8 @@ function EventHosting() {
                 <button type="submit" className="event-button" disabled={loading}>
                     {loading ? "Adding Event..." : "Add Event"}
                 </button>
+                 {/* TextEditor component with onChange handler */}
+                 <TextEditor onChange={handleDescriptionChange} />
             </form>
         </div>
     );
