@@ -208,3 +208,15 @@
   text-align: center;
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .cnt-card{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cnt-card{
+    width: 100%;
+  }
+}
