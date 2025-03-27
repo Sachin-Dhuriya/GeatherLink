@@ -10,7 +10,7 @@ export default function TextEditor({ onChange }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/events/add-event")
+      .get("https://geatherlink.onrender.com/api/events/add-event")
       .then((response) => {
         if (response.data && response.data.text) {
           setContent(response.data.text);
@@ -35,7 +35,7 @@ export default function TextEditor({ onChange }) {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("http://localhost:5000/api/events/add-event", { text: content });
+      await axios.post("https://geatherlink.onrender.com/api/events/add-event", { text: content });
       console.log("Text saved successfully");
     } catch (err) {
       console.error("Error saving text", err);

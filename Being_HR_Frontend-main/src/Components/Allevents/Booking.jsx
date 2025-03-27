@@ -20,7 +20,7 @@ const Booking = () => {
     const fetchEvent = async () => {
       try {
         console.log("Fetching event details...");
-        const res = await axios.get(`http://localhost:5000/eventdetails/${id}`);
+        const res = await axios.get(`https://geatherlink.onrender.com/eventdetails/${id}`);
         setEventData(res.data);
         setFormData({ ...formData, eventName: res.data.title });
       } catch (err) {
@@ -76,7 +76,7 @@ const Booking = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/eventregistration", formData);
+      const response = await axios.post("https://geatherlink.onrender.com/eventregistration", formData);
       console.log("Registration successful:", response.data);
       alert("Registration successful!");
     } catch (error) {

@@ -20,7 +20,7 @@ const EventCard = () => {
     const fetchEvent = async () => {
       try {
         console.log("Attempting to fetch event details...");
-        const response = await axios.get(`http://localhost:5000/eventdetails/${id}`);
+        const response = await axios.get(`https://geatherlink.onrender.com/eventdetails/${id}`);
         console.log("Fetched event data:", response.data); // Check fetched data
         setEvent(response.data);
       } catch (error) {

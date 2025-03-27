@@ -52,7 +52,7 @@ function Home() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/eventdetails");
+        const response = await axios.get("https://geatherlink.onrender.com/eventdetails");
         console.log("Fetched Events Data:", response.data.data); // Debugging
         setMongoEvents(response.data.data);
       } catch (error) {
