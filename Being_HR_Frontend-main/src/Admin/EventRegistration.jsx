@@ -9,7 +9,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchEventRegistrations = async () => {
       try {
-        const response = await fetch('https://beinghr-backend.onrender.com/eventregistration');
+        const response = await fetch('https://geatherlink.onrender.com/eventregistration');
         const data = await response.json();
         setEventRegistrations(data);
       } catch (error) {

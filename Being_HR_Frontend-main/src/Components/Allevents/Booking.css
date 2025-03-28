@@ -21,7 +21,9 @@
   margin-bottom: 10px;
 }
 
-
+.error-msg{
+  color: rgb(239, 43, 43);
+}
 
 /* Form container */
 .f-registration-form {
@@ -54,7 +56,7 @@
 }
 
 .input-field:focus {
-  border-color: #ff4444;
+  border-color: white;
   outline: none;
 }
 

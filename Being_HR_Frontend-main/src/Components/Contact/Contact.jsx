@@ -28,7 +28,7 @@ const Contact = () => {
     setResponseMessage("");
   
     try {
-      const response = await fetch("https://beinghr-backend.onrender.com/form", {
+      const response = await fetch("https://geatherlink.onrender.com/form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

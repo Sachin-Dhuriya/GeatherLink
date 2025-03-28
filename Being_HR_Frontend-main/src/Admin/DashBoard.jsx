@@ -7,7 +7,7 @@ const DashBoard = () => {
 
   // Fetch user queries from the backend when the component mounts
   useEffect(() => {
-    fetch('https://beinghr-backend.onrender.com/form') // Update the URL if needed
+    fetch('https://geatherlink.onrender.com/form') // Update the URL if needed
       .then(response => response.json())
       .then(data => setUserQueries(data))
       .catch(error => console.error('Error fetching data:', error));
