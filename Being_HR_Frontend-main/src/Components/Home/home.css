@@ -3,7 +3,7 @@
   background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 0px;
 }
 .hero-section {
   position: relative;
@@ -331,8 +331,28 @@
 }
 
 @media (max-width: 480px) {
+  .home-container {
+    display: block;/* Allow content to wrap for smaller screens */
+    justify-content: center; /* Center content for smaller screens */
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+  .images-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1; /* Allow flexible width */
+    max-width: 100%; /* Ensure it doesn't exceed screen width */
+  }
+  
+  .image-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Center images in smaller screens */
+  }
   .image {
-    max-width: 100px; /* Smallest image size */
+    max-width: 100%; /* Smallest image size */
   }
 
   .text-section h1 {
@@ -376,7 +396,7 @@
 .testimonial-card {
   background: #1c1c1c;
   border-radius: 10px;
-  padding: 20px;
+  padding: 12px;
   width: 400px;
   text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -384,6 +404,7 @@
 
 .profile-section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 15px;
 }
@@ -492,4 +513,36 @@
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
+}
+
+
+@media (max-width: 480px) {
+    
+  .hero-section {
+    position: relative;
+    height: 50vh;
+    background: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&w=1000&q=80') no-repeat center center/cover; /* Replace with actual background image/video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+.hero-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+.testimonial-card {
+  background: #1c1c1c;
+  border-radius: 10px;
+  padding: 12px;
+  width: 400px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 }

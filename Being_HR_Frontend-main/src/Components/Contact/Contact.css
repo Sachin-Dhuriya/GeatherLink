@@ -219,4 +219,16 @@
   .cnt-card{
     width: 100%;
   }
+  .cnt-header p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    text-align: left;
+}
+.cnt-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
 }

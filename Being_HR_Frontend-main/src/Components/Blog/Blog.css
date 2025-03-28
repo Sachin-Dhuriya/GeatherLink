@@ -92,6 +92,7 @@ body {
 
 .BN-cta-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 }
@@ -107,3 +108,62 @@ body {
 .BN-button-purple {
   background-color: purple;
 }
+
+
+@media (max-width: 480px) {
+  .BN-title {
+    text-align: left;
+    font-size: 1.8em;
+    font-weight: 550;
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+  .BN-subtitle {
+    text-align: left;
+    font-size: 1.1em;
+    margin-bottom: 14px;
+    color: #ccc;
+}
+  .BN-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .BN-card {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .BN-card-title {
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  
+  .BN-card-desc {
+    font-size: 0.7em;
+    margin-bottom: 8px;
+  }
+  
+  .BN-card-date {
+    font-size: 0.6em;
+    margin-bottom: 8px;
+  }
+  
+  .BN-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .BN-button:hover {
+    background-color: #2eb532;
+  }
+  
+  }

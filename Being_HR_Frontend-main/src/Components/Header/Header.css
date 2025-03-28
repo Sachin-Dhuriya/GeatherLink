@@ -1,4 +1,4 @@
-/* General styles */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,7 +6,9 @@ body {
   color: #fff;
 }
 
+
 /* Navbar container */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,7 +21,9 @@ body {
   border-bottom: 1px solid silver;
 }
 
+
 /* Logo styles */
+
 .company-logo {
   display: flex;
   align-items: center;
@@ -41,63 +45,86 @@ body {
   font-size: 25px;
 }
 
-/* Nav links */
-.nav-links {
+
+/* Desktop Navigation */
+
+.desktop-nav {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.nav-links a {
+.desktop-nav a {
   text-decoration: none;
   color: #fff;
   padding: 5px 10px;
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.desktop-nav a:hover {
   color: #4caf50;
 }
 
-/* Dropdown styles */
-.dropdown {
-  position: relative;
+
+/* Mobile Navigation */
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  z-index: 1050;
 }
 
-.dropbtn {
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.mobile-nav a:hover {
+  color: #4caf50;
+}
+
+
+/* Close Button */
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   background: none;
   border: none;
-  color: #fff;
-  font-size: 16px;
+  color: white;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #1c1c1c;
-  min-width: 150px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+
+/* Overlay Background */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
-.dropdown-content a {
-  color: #fff;
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-  transition: background 0.3s;
-}
 
-.dropdown-content a:hover {
-  background-color: #4caf50;
-}
+/* Menu Toggle Button */
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Responsive styles */
 .menu-toggle {
   display: none;
   background: none;
@@ -105,18 +132,15 @@ body {
   color: #fff;
   font-size: 24px;
   cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1100;
 }
 
-.nav-links.open {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #000;
-  padding: 20px;
-  border-radius: 8px;
-}
+
+/* Join Now Button */
+
 .join-now-button {
   background-color: #4caf50;
   color: #fff;
@@ -132,13 +156,15 @@ body {
   color: white;
   transform: scale(1.05);
 }
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-  }
 
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .desktop-nav {
+      display: none;
+  }
   .menu-toggle {
-    display: block;
+      display: block;
   }
 }

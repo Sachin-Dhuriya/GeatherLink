@@ -56,7 +56,7 @@ const Contact = () => {
       <div className="cnt-container">
       <div className="cnt-header">
         <h1>Contact BeingHR</h1>
-        <p>Whether you have questions, feedback, or partnership inquiries, we’ d0 love to hear from you!</p>
+        <p>Whether you have questions, feedback, or partnership inquiries, we’ do love to hear from you!</p>
       </div>
 
       <div className="cnt-grid">

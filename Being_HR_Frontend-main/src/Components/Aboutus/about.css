@@ -42,11 +42,12 @@
   /* Section Styles */
   .section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(33, 33, 33);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -72,8 +73,8 @@
   }
   
   .content p {
-    font-size: 16px;
-    color: #555;
+    font-size: 14px;
+    color: white;
   }
   
   /* Services Section */
@@ -83,15 +84,16 @@
   
   .services-grid {
     display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
   }
   .section-title-about{
-    color: black;
+    color: white;
   }
   
   .service-card {
-    background-color: #fff;
+    background-color: rgb(33, 33, 33);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -110,7 +112,7 @@
   }
   
   .service-card p {
-    color: #555;
+    color: white;
   }
   
   /* Call to Action Section */
@@ -161,8 +163,23 @@
   }
   
   @media (max-width: 480px) {
+    .header{
+      padding: 10px ;
+    }
+    
     .services-grid {
       grid-template-columns: 1fr;
+    }
+    .header .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    
+    .header .subtitle {
+      font-size: 12px;
+      text-align: left;
     }
   }
   
